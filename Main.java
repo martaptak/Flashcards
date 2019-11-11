@@ -15,23 +15,23 @@ public class Main {
 		String file2 = "";
 
 
-			if (args.length == 2) {
-				action1 = args[0];
-				file1 = args[1];
-			}
+		if (args.length == 2) {
+			action1 = args[0];
+			file1 = args[1];
+		}
 
-			if (args.length == 4) {
-				action1 = args[0];
-				file1 = args[1];
-				action2 = args[2];
-				file2 = args[3];
-			}
-			if (action1.equals("-import")) {
-				Flashcard.importCards(file1);
-			}
-			else if(action2.equals("-import")) {
-				Flashcard.importCards(file2);
-			}
+		if (args.length == 4) {
+			action1 = args[0];
+			file1 = args[1];
+			action2 = args[2];
+			file2 = args[3];
+		}
+		if (action1.equals("-import")) {
+			Flashcard.importCards(file1);
+		} else if (action2.equals("-import")) {
+			Flashcard.importCards(file2);
+		}
+
 		do {
 			System.out.println("Input the action (add, remove, import, export, ask, exit, log, hardest card, reset stats):");
 			String action = scanner.nextLine();
@@ -65,8 +65,7 @@ public class Main {
 					isExit = true;
 					if (action1.equals("-export")) {
 						Flashcard.exportCards(file1);
-					}
-					else if(action2.equals("-import")) {
+					} else if (action2.equals("-import")) {
 						Flashcard.exportCards(file2);
 					}
 					System.out.println("Bye bye!");
