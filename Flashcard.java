@@ -30,7 +30,7 @@ public class Flashcard {
 		this.definition = definition;
 	}
 
-	Flashcard(String cardName, String definition, Integer mistakes) {
+	private Flashcard(String cardName, String definition, Integer mistakes) {
 
 		this.cardName = cardName;
 		this.definition = definition;
@@ -47,7 +47,7 @@ public class Flashcard {
 		this.cardName = cardName;
 	}
 
-	public String getDefinition() {
+	private String getDefinition() {
 
 		return definition;
 	}
@@ -57,7 +57,7 @@ public class Flashcard {
 		this.definition = definition;
 	}
 
-	public Integer getMistakes() {
+	private Integer getMistakes() {
 
 		return mistakes;
 	}
@@ -77,7 +77,7 @@ public class Flashcard {
 		Flashcard.flashcards = flashcards;
 	}
 
-	public static List<String> getLog() {
+	static List<String> getLog() {
 
 		return log;
 	}
@@ -101,15 +101,6 @@ public class Flashcard {
 			System.out.print("The definition of the card :\n");
 			definition = Main.scanner.nextLine();
 			log.add(definition);
-			String oldDefinition = cardToDefinition.get(card);
-		/*	cardToDefinition.replace(card, definition);
-			definitionToCard.remove(oldDefinition);
-			definitionToCard.put(definition, card);
-			flashcards.forEach(flashcard -> {
-				if(flashcard.getCardName().equals(card)){
-					flashcard.setDefinition(definition);
-				}
-			});     */
 
 			System.out.printf("Definition for card: \"%s\" replaced for: \"%s\". \n", card,
 					definition);
@@ -186,10 +177,10 @@ public class Flashcard {
 		String file = Main.scanner.nextLine();
 		log.add(file);
 
-		 exportCards(file);
+		exportCards(file);
 	}
 
-	static void exportCards(String file)   {
+	static void exportCards(String file) {
 		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(file));
 		     PrintWriter print = new PrintWriter(writer)) {
 			for (Flashcard flashcard : flashcards) {
